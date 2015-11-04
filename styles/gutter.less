@@ -1,0 +1,42 @@
+atom-text-editor, :host {
+  .gutter {
+    background-color: @syntax-gutter-background-color;
+    color: @syntax-gutter-text-color;
+    border-right: 1px solid @syntax-gutter-border-color;
+
+    .line-number {
+      background: @syntax-gutter-background-color;
+      color: @syntax-gutter-text-color;
+
+      // selected block
+      &.cursor-line {
+        color: @syntax-gutter-text-color-selected;
+        font-weight: 100;
+      }
+
+      // current active line
+      &.cursor-line-no-selection {
+        color: @syntax-gutter-text-current;
+      }
+
+      &:hover {
+        color: @syntax-gutter-text-color-selected;
+      }
+    }
+  }
+
+  // line number for sections that have been collapsed
+  .gutter .line-number.folded,
+  .gutter .line-number:after,
+  .fold-marker:after {
+    color: @syntax-gutter-text-color-selected;
+    background: @syntax-gutter-text-color;
+  }
+}
+
+atom-text-editor::shadow {
+  // Smaller git-gutter icon
+  .gutter.git-diff-icon .line-number:before {
+    font-size: 0.6em;
+  }
+}

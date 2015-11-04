@@ -1,0 +1,314 @@
+@import 'syntax-variables';
+@import 'colors';
+@import 'gfm';
+@import 'highlights';
+@import 'gutter';
+@import 'autocomplete';
+
+// TODO: move to UI
+  // html, body {
+  //   font-size: 11px;
+  //   background-color: rgb(21, 21, 21);
+  // }
+
+  atom-pane.active {
+    .tab-bar .tab.active  {
+      .title { color: lighten(#616e75, 45%) }
+    }
+  }
+
+  atom-pane .tab-bar .tab.active  {
+    .title { color: lighten(#616e75, 15%) }
+  }
+
+atom-text-editor, :host {
+  background-color: @syntax-background-color;
+  color: @syntax-text-color;
+
+  .invisible-character {
+    color: @syntax-invisible-character-color;
+  }
+
+  .indent-guide {
+    color: @syntax-indent-guide-color;
+  }
+
+  .indent-guide:first-child {
+    color: transparent;
+  }
+
+  .wrap-guide {
+    background-color: @syntax-wrap-guide-color;
+  }
+
+  .invisible {
+    color: @syntax-text-color;
+  }
+}
+
+.comment {
+  color: @syntax-comment-color;
+  font-style: italic;
+
+  .todo, .note, .fixme {
+    color: @purple;
+    &.storage.type { font-style: italic }
+  }
+}
+
+// ===================
+
+.string {
+  color: @yellow;
+}
+
+.constant.character.escape {
+  color: @blue;
+}
+
+.regexp {
+  color: @pink;
+
+  .keyword.other, // modifiers
+  .string { // delimiters
+    color: @light-gray;
+  }
+
+  .constant, .keyword {
+    color: @purple;
+  }
+}
+
+// ===================
+
+.support.function.decl { // TODO: what's this?
+  color: #E6DB74;
+  color: red;
+}
+
+.variable.less,
+.variable.scss {
+  color: @yellow;
+}
+
+.entity.name.class,
+.entity.other.inherited-class,
+.entity.name.accessor,
+.meta.method .entity.name.method,
+.meta.function .entity.name.method,
+.meta.function:not(.arrow) .entity.name.function {
+  color: @yellow;
+  text-decoration: none;
+}
+
+.meta.function > .keyword.operator {
+  color: @light-gray;
+}
+
+.keyword.operator.accessor {
+  color: @pink;
+}
+
+// ===================
+
+.storage {
+  color: @blue;
+}
+
+.storage.type {
+  font-style: normal;
+  &.doc { color: @gray-purple }
+}
+
+.keyword.control.js {
+  color: @blue;
+}
+
+.entity.name.instance {
+  color: @blue;
+}
+
+.support.constant {
+  color: @blue;
+}
+
+.support.type.property-name {
+  color: @blue;
+  // text-decoration: underline;
+  font-style: normal;
+}
+
+.meta.function.arrow.js .storage.type {
+  font-style: italic;
+}
+
+// Template strings
+.punctuation.embedded.coffee,
+.punctuation.quasi {
+  color: @light-gray;
+}
+
+// ===================
+
+.variable.parameter { // coffeescript
+  color: @orange;
+}
+
+.object.key.js .string,
+.meta.group.curly > .meta.delimiter.comma,
+.meta.for > .meta.delimiter.comma,
+.meta.function .punctuation.definition.parameters {
+  color: @light-gray;
+}
+
+.keyword.control.flow {
+  color: @orange;
+}
+
+.entity.other.attribute-name {
+  color: @orange;
+}
+
+.meta.structure.dictionary.json:not(.value) > .string.quoted.double.json {
+  &, & > .punctuation.definition.string.json {
+    color: @pink;
+  }
+}
+
+.entity.other.pseudo-class {
+  color: @pink;
+}
+
+// ===================
+
+.constant.numeric {
+  color: @purple;
+}
+
+.constant.language {
+  color: @purple;
+}
+
+.constant.character,
+.constant.escape,
+.constant.other {
+  color: @purple;
+}
+
+// Jade syntax
+.class.jade {
+  color: @green;
+}
+
+.support.constant.property-value {
+  color: @purple;
+}
+
+// ===================
+
+.keyword {
+  color: darken(@pink, 5%);
+  &.ternary, &.spread { color: @blue }
+}
+
+.punctuation.definition.tag {
+  color: @pink;
+}
+
+.entity.name.tag,
+.keyword.control.elements {
+  color: @pink;
+  position: relative;
+
+  &:after {
+    content: ' ';
+    position: absolute;
+    left: 0; right: 0; top: 0px;
+    border-bottom: 1px solid @pink;
+  }
+}
+
+.entity.name.tag.custom,
+.keyword.control.elements.custom {
+  text-decoration: none;
+}
+
+.punctuation.keyword.css,
+.keyword.control.at-rule {
+  color: @green;
+}
+
+// `this`, `document`, etc
+.support.type.object.dom.js,
+.variable.language.js {
+  color: darken(@pink, 5%);
+}
+
+.variable.language.this.js + .keyword.accessor {
+  & + .meta.property > .variable,
+  & + .meta.property + .keyword.accessor,
+  & + .meta.function-call > .entity.name.function {
+    color: @green;
+  }
+}
+
+.punctuation.terminator.statement.js {
+  color: @pink;
+}
+
+// Top-level comma's
+.meta.delimiter.comma {
+  color: @blue;
+}
+
+// JSX ===============
+
+atom-text-editor::shadow
+.source.js.jsx .jsx .entity.other.attribute-name {
+  font-style: normal;
+  color: desaturate(@blue, 20%);
+  text-shadow: 1px 1px 1px #000;
+}
+
+// ===================
+
+.json > .entity.name.function,
+.punctuation.separator.key-value.js,
+.meta .braces,
+.meta .brace {
+  color: @light-gray;
+}
+
+.support.function,
+.entity.name.function,
+.meta.function-call .entity.name.function {
+  color: @green;
+  font-style: normal;
+}
+
+.invalid {
+  color: #000;
+  background-color: @red;
+}
+
+.invalid.deprecated { // TODO: used when?
+  color: #F8F8F0;
+  background-color: @purple;
+}
+
+// ===================
+
+.meta.function:not(.group), // Comma's in functions
+.meta.function > .variable,
+.meta.function > .variable + .keyword.operator.accessor,
+.meta.function > .meta > .meta.brace.curly.js {
+  color: @orange;
+}
+
+// ===================
+
+// Prevent underlines from making their way into whitespace elements
+.leading-whitespace,
+.trailing-whitespace {
+  display: inline-block;
+}

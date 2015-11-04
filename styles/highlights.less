@@ -1,0 +1,36 @@
+atom-text-editor::shadow {
+  .cursor {
+    border-width: 2px; // Fatter cursor
+    border-color: @syntax-cursor-color;
+  }
+
+  .find-result .region {
+    background-color: transparent;
+    border-radius: 0px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid @syntax-result-marker-color;
+  }
+
+  .highlights .highlight-selected .region {
+    background-color: transparent;
+    border-radius: 2px;
+    box-sizing: border-box;
+    border:2px solid @syntax-result-marker-color-selected;
+  }
+
+  .selection .region {
+    background: @syntax-selection-color;
+    border-bottom: 1px solid #aaa;
+  }
+
+  .bracket-matcher .region {
+    border-bottom: 2px solid @blue;
+  }
+
+  // Highlight current line
+  .line.cursor-line > .source {
+    background-color: #131313;
+    padding-right: 2em;
+  }
+}

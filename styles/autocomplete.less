@@ -1,0 +1,38 @@
+autocomplete-suggestion-list {
+  .word {
+    color: #999;
+  }
+
+  &.select-list ol.list-group li.selected {
+    @bg: @gray-purple;
+    background-color: @bg;
+
+    .c(@color) {
+      background-color: mix(@color, @bg);
+    }
+
+    .icon.tag, .icon.property, .icon.snippet {
+      .c(@blue);
+    }
+
+    .icon.variable, .icon.selector,
+    .icon.pseudo-selector {
+      .c(@yellow);
+    }
+  }
+
+  .icon {
+    &.tag, &.property, &.selector,
+    &.pseudo-selector, &.variable, &.snippet {
+      color: #000;
+    }
+  }
+
+  .icon.tag, .icon.property, .icon.snippet {
+    background-color: @blue;
+  }
+
+  .icon.variable, .icon.selector, .icon.pseudo-selector {
+    background-color: @yellow;
+  }
+}

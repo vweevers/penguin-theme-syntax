@@ -1,0 +1,16 @@
+{
+  "name": "penguin-theme-syntax",
+  "theme": "syntax",
+  "version": "0.0.0",
+  "description": "[wip] Playful and gentle syntax theme",
+  "keywords": [
+    "syntax",
+    "theme",
+    "penguin"
+  ],
+  "repository": "https://github.com/vweevers/penguin-theme-syntax",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
